@@ -1,12 +1,16 @@
 name: Docker Series Builds
 
-on: [push]
+on: 
+  push: 
+    branches: 
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps: 
-    - uses: action/checkout@v3
+    -name: Checkout rep
+     uses: action/checkout@v2
     - name: docker build python
       run: |
         docker build ./python aimvector/python:1.0.0
