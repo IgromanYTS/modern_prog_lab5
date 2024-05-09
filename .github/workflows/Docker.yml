@@ -10,9 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout rep
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
       - name: Login to DockerHub Registry
-        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - name: docker build
         run: |
           docker build -t aimvector/python:1.0.0 ./python
