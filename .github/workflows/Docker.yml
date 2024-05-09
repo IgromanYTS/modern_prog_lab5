@@ -19,4 +19,4 @@ jobs:
           docker build -t aimvector/python:1.0.0 ./python
       - name: docker push
         run: 
-            docker push aimvector/python:1.0.0
+          docker push aimvector/python:1.0.0
