@@ -9,8 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps: 
-    -name: Checkout rep
-     uses: actions/checkout@v2
+    - name: Checkout rep
+      uses: actions/checkout@v2
     - name: docker build python
       run: |
         docker build ./python aimvector/python:1.0.0
