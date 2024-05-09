@@ -13,6 +13,6 @@ jobs:
       uses: actions/checkout@v2
     - name: docker build python
       run: |
-        docker build ./python aimvector/python:1.0.0
+        docker build -t aimvector/python:1.0.0 ./python
 
     
