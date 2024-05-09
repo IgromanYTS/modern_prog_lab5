@@ -20,5 +20,6 @@ jobs:
       - name: Push image to Docker Hub
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - name: Run tests in Docker container
-        run: docker run igromanytss/my-python-app
+          docker run igromanytss/my-python-app:latest
+
 
