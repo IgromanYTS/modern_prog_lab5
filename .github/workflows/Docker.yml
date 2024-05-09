@@ -9,12 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps: 
-    - name: Checkout rep
-    - uses: actions/checkout@v1
-    - name: Login to DockerHub Registry
-      run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-    - name: docker build
-      run: |
-        docker build -t aimvector/python:1.0.0 ./python
+      - name: Checkout rep
+        uses: actions/checkout@v1
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+      - name: docker build
+        run: |
+          docker build -t aimvector/python:1.0.0 ./python
 
     
