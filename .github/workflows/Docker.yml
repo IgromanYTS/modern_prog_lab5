@@ -17,6 +17,7 @@ jobs:
       - name: docker build
         run: |
           docker build -t aimvector/python:1.0.0 ./python
-      - name: docker push
-        run: 
-          docker push aimvector/python:1.0.0
+      - name: Push image to Docker Hub
+        run: docker push igromanytss/my-python-app
+      - name: Run tests in Docker container
+        run: docker run igromanytss/my-python-app
