@@ -19,5 +19,5 @@ jobs:
           docker build -t aimvector/python:1.0.0 ./python
       - name: Push image to Docker Hub
         run: |
-          echo "" | docker login -u "" --password-stdi
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin < /tmp/docker_password
           docker push igromanytss/my-python-app:latest
