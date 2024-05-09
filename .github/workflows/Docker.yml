@@ -14,9 +14,8 @@ jobs:
       - name: Login to DockerHub Registry
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
-        run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+          DOCKER_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_TOKEN
       - name: docker build
         run: |
           docker build -t aimvector/python:1.0.0 ./python
-  
