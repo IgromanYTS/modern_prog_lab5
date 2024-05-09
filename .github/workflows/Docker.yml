@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout rep
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Login to DockerHub Registry
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
       - name: docker build
