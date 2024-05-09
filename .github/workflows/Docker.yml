@@ -15,9 +15,7 @@ jobs:
       env: 
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      run: |
-        echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USER" --password-stdin
-    - name: docker build python
+      run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USER}" --password-stdin
       run: |
         docker build -t aimvector/python:1.0.0 ./python
 
