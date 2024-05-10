@@ -17,3 +17,5 @@ jobs:
         run: docker build -t igromanytss/aimvector .
       - name: push image docker 
         run: docker push igromanytss/aimvector
+      - name: run test in docker container
+        run: docker run igromanytss/aimvector
