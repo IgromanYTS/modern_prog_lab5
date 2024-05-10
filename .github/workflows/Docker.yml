@@ -12,12 +12,7 @@ jobs:
       - name: Checkout rep
         uses: actions/checkout@v1
       - name: Login to DockerHub Registry
-        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
-      - name: docker build
-        run: |
-          docker build -t igromanytss/aimvector .
-      - name: Push image to Docker Hub
-        run: docker push igromanytss/aimvector
-      - name: Run tests in Docker container
-        run: docker run ${{ secrets.DOCKER_USERNAME }}/aimvector/python:1.0.0
+          docker login --username igromanytss --password ${{ secrets.DOCKERHUB_PASSWORD }} ghcr.io
+          docker build . --tag ghcr.io/igromanytss/aimvector:latest
+          docker push ghcr.io/igromanytss/aimvector:latest
 
