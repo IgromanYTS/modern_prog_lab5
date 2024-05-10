@@ -16,7 +16,7 @@ jobs:
             echo "${{ secrets.DOCKERHUB_PASSWORD }}" > /tmp/docker_password docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin < /tmp/docker_password
       - name: docker build
         run: |
-          docker build -t igromanytss/aimvector 
+          docker build -t igromanytss/aimvector .
       - name: Push image to Docker Hub
         run: docker push igromanytss/aimvector
       - name: Run tests in Docker container
